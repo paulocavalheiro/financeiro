@@ -1,42 +1,7 @@
 /** @type {import('next').NextConfig} */
-
-const NextFederationPlugin = require("@module-federation/nextjs-mf");
-const routes = require("./src/routes/moduleRoutes.json");
-
-module.exports = {
-  webpack(config, options) {
-    const { isServer } = options;
-
-    config.plugins.push(
-      new NextFederationPlugin({
-        name: "bime_financeiro",
-        remotes: {
-          // bime_vendas: `${process.env.NEXT_PRIVATE_LOCAL_BIMEVENDAS}${
-          //   isServer ? "ssr" : "chunks"
-          // }/remoteEntry.js`,
-          host: `${process.env.NEXT_PRIVATE_LOCAL_HOST}${
-            isServer ? "ssr" : "chunks"
-          }/remoteEntry.js`,
-        },
-        filename: "static/chunks/remoteEntry.js",
-        exposes: {
-          "./pages/dashboards/listaFinanceiro":
-            "./src/pages/dashboards/listaFinaceiro.tsx",
-        },
-        shared: {
-          "@chakra-ui/": {
-            singleton: true,
-            requiredVersion: false,
-          },
-          "@emotion/": {
-            singleton: true,
-            requiredVersion: false,
-          },
-        },
-        force: true,
-      })
-    );
-
-    return config;
-  },
+const nextConfig = {
+  reactStrictMode: true, // Ativa o modo estrito do React, ajudando a detectar potenciais problemas
+  swcMinify: true, // Utiliza o minificador SWC, que é mais rápido e otimizado para Next.js
 };
+
+module.exports = nextConfig;
