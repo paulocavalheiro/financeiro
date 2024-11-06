@@ -10,14 +10,11 @@ module.exports = {
       new NextFederationPlugin({
         name: "bime_financeiro",
         remotes: {
-          bime_vendas: `bime_vendas@http://localhost:3001/_next/static/${
-            isServer ? "ssr" : "chunks"
-          }/remoteEntry.js`,
           host: `host@https://microhost.vercel.app/${
             isServer ? "ssr" : "chunks"
           }/remoteEntry.js`,
         },
-        filename: "static/chunks/remoteEntry.js",
+        // filename: "static/chunks/remoteEntry.js",
         exposes: {},
         shared: {
           "@chakra-ui/": {
