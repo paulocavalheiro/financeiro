@@ -6,6 +6,10 @@ const routes = require("./src/routes/moduleRoutes.json");
 module.exports = {
   webpack(config, options) {
     const { isServer } = options;
+    config.resolve.alias["@module-federation/webpack-bundler-runtime"] =
+      require.resolve(
+        "@module-federation/webpack-bundler-runtime/dist/index.esm.mjs"
+      );
     config.plugins.push(
       new NextFederationPlugin({
         name: "bime_financeiro",
