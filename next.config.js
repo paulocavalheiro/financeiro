@@ -31,10 +31,6 @@ module.exports = {
             singleton: true,
             requiredVersion: false,
           },
-          "@emotion/": {
-            singleton: true,
-            requiredVersion: false,
-          },
         },
         force: true,
       })
