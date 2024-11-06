@@ -10,9 +10,9 @@ module.exports = {
       new NextFederationPlugin({
         name: "bime_financeiro",
         remotes: {
-          // bime_vendas: `${process.env.NEXT_PRIVATE_LOCAL_BIMEVENDAS}${
-          //   isServer ? "ssr" : "chunks"
-          // }/remoteEntry.js`,
+          bime_vendas: `${process.env.NEXT_PRIVATE_LOCAL_BIMEVENDAS}${
+            isServer ? "ssr" : "chunks"
+          }/remoteEntry.js`,
           host: `${process.env.NEXT_PRIVATE_LOCAL_HOST}${
             isServer ? "ssr" : "chunks"
           }/remoteEntry.js`,
@@ -22,17 +22,21 @@ module.exports = {
           "./pages/dashboards/listaFinanceiro":
             "./src/pages/dashboards/listaFinaceiro.tsx",
         },
+        shared: {
+          "@chakra-ui/": {
+            singleton: true,
+            requiredVersion: false,
+          },
+          "@emotion/": {
+            singleton: true,
+            requiredVersion: false,
+          },
+          "@emotion/": {
+            singleton: true,
+            requiredVersion: false,
+          },
+        },
         force: true,
-        // shared: {
-        //   "@chakra-ui/": {
-        //     singleton: true,
-        //     requiredVersion: false,
-        //   },
-        //   "@emotion/": {
-        //     singleton: true,
-        //     requiredVersion: false,
-        //   },
-        // },
       })
     );
 
