@@ -6,6 +6,7 @@ const routes = require("./src/routes/moduleRoutes.json");
 module.exports = {
   webpack(config, options) {
     const { isServer } = options;
+
     config.plugins.push(
       new NextFederationPlugin({
         name: "bime_financeiro",
