@@ -1,28 +1,27 @@
 /** @type {import('next').NextConfig} */
 
 const NextFederationPlugin = require("@module-federation/nextjs-mf");
-const routeConfig = require("./routes/routesModule.json");
+const routes = require("./src/routes/moduleRoutes.json");
 
 module.exports = {
   webpack(config, options) {
     const { isServer } = options;
     config.plugins.push(
       new NextFederationPlugin({
-        name: "host",
+        name: "bime_financeiro",
         remotes: {
           bime_vendas: `${process.env.NEXT_PRIVATE_LOCAL_BIMEVENDAS}${
             isServer ? "ssr" : "chunks"
           }/remoteEntry.js`,
-          bime_financeiro: `${process.env.NEXT_PRIVATE_LOCAL_BIMEFINANCEIRO}${
+          host: `${process.env.NEXT_PRIVATE_LOCAL_HOST}${
             isServer ? "ssr" : "chunks"
           }/remoteEntry.js`,
         },
         filename: "static/chunks/remoteEntry.js",
         exposes: {
-          "./contexts/UserProvider": `${routeConfig.baseDir}/${routeConfig?.exposedRoutes?.contexts?.UserProvider}`,
-          "./contexts/UserContextType": `${routeConfig.baseDir}/${routeConfig?.exposedRoutes?.contexts?.UserContextType}`,
+          "./pages/dashboards/listaFinanceiro":
+            "./src/pages/dashboards/listaFinaceiro.tsx",
         },
-        force: true,
         shared: {
           "@chakra-ui/": {
             singleton: true,
@@ -33,6 +32,7 @@ module.exports = {
             requiredVersion: false,
           },
         },
+        force: true,
       })
     );
 
