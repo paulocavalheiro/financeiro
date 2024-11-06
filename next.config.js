@@ -10,12 +10,18 @@ module.exports = {
       new NextFederationPlugin({
         name: "bime_financeiro",
         remotes: {
-          host: `host@https://microhost.vercel.app/${
+          bime_vendas: `${process.env.NEXT_PRIVATE_LOCAL_BIMEVENDAS}${
+            isServer ? "ssr" : "chunks"
+          }/remoteEntry.js`,
+          host: `${process.env.NEXT_PRIVATE_LOCAL_HOST}${
             isServer ? "ssr" : "chunks"
           }/remoteEntry.js`,
         },
-        // filename: "static/chunks/remoteEntry.js",
-        exposes: {},
+        filename: "remoteEntry.js",
+        exposes: {
+          "./pages/dashboards/listaFinanceiro":
+            "./src/pages/dashboards/listaFinaceiro.tsx",
+        },
         shared: {
           "@chakra-ui/": {
             singleton: true,
