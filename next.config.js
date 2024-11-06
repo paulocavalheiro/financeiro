@@ -22,6 +22,7 @@ module.exports = {
           "./pages/dashboards/listaFinanceiro":
             "./src/pages/dashboards/listaFinaceiro.tsx",
         },
+        force: true,
         shared: {
           "@chakra-ui/": {
             singleton: true,
@@ -32,7 +33,6 @@ module.exports = {
             requiredVersion: false,
           },
         },
-        force: true,
       })
     );
 
