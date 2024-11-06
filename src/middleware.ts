@@ -6,6 +6,11 @@ export async function middleware(req: any) {
 
   // direatorios privados
   const protectedRoutes = ["/dashboards"];
+  console.log(
+    "rotas: ",
+    protectedRoutes.some((route) => req.nextUrl.pathname.startsWith(route)),
+    token
+  );
   if (protectedRoutes.some((route) => req.nextUrl.pathname.startsWith(route))) {
     if (!token) {
       // redireciona caso n esteja autenticado
