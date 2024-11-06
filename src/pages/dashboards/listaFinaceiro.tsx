@@ -10,10 +10,10 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import { useUser, UserContextType } from "host/contexts/UserProvider";
+// import { useUser, UserContextType } from "host/contexts/UserProvider";
 
 export default function ListaFinanceiro() {
-  const { user } = useUser() as UserContextType;
+  // const { user } = useUser() as UserContextType;
   const financialData = [
     {
       id: 1,
@@ -48,7 +48,7 @@ export default function ListaFinanceiro() {
   return (
     <>
       <Text fontSize="2xl" mb={4}>
-        Resumo Financeiros de {user?.name}
+        {/* Resumo Financeiros de {user?.name} */}
       </Text>
       <Box margin="0 auto" mt={10} width={"100%"}>
         <TableContainer>
