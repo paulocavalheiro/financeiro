@@ -17,7 +17,7 @@ module.exports = {
             isServer ? "ssr" : "chunks"
           }/remoteEntry.js`,
         },
-        filename: "remoteEntry.js",
+        filename: "static/chunks/remoteEntry.js",
         exposes: {
           "./pages/dashboards/listaFinanceiro":
             "./src/pages/dashboards/listaFinaceiro.tsx",
