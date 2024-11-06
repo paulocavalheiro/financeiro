@@ -4,6 +4,7 @@ const NextFederationPlugin = require("@module-federation/nextjs-mf");
 
 const federationConfig = new NextFederationPlugin({
   name: "bime_financeiro",
+  remoteType: "module",
   remotes: {
     host: async () =>
       `${process.env.NEXT_PUBLIC_PRODUCTION_HOST}/remoteEntry.js`,
