@@ -10,9 +10,9 @@ module.exports = {
       new NextFederationPlugin({
         name: "bime_financeiro",
         remotes: {
-          bime_vendas: `${process.env.NEXT_PRIVATE_LOCAL_BIMEVENDAS}${
-            isServer ? "ssr" : "chunks"
-          }/remoteEntry.js`,
+          // bime_vendas: `${process.env.NEXT_PRIVATE_LOCAL_BIMEVENDAS}${
+          //   isServer ? "ssr" : "chunks"
+          // }/remoteEntry.js`,
           host: `${process.env.NEXT_PRIVATE_LOCAL_HOST}${
             isServer ? "ssr" : "chunks"
           }/remoteEntry.js`,
